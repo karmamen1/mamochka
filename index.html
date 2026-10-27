@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для самой лучшей мамы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #f8c8d4;
+            --rose: #e8a0b0;
+            --deep-rose: #c97b8a;
+            --cream: #fff8f5;
+            --soft-shadow: 0 25px 50px -12px rgba(201, 123, 138, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 40%, #f8bbd0 100%);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts background */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(232, 160, 176, 0.35);
+            animation: float 12s ease-in-out infinite;
+            user-select: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-40px) rotate(15deg); opacity: 0.6; }
+        }
+
+        .card {
+            position: relative;
+            z-index: 10;
+            background: var(--cream);
+            border-radius: 28px;
+            padding: 3.5rem 3rem;
+            max-width: 540px;
+            width: 90%;
+            box-shadow: var(--soft-shadow);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            animation: appear 1.1s ease-out;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--rose), transparent);
+            margin: 0 auto 1.8rem;
+            border-radius: 2px;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            font-weight: 600;
+            color: #5c3a42;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--deep-rose);
+            font-weight: 400;
+            margin-bottom: 2.2rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            line-height: 1.75;
+            color: #4a2f36;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .message strong {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--deep-rose);
+        }
+
+        .heart-icon {
+            font-size: 2.8rem;
+            display: inline-block;
+            animation: heartbeat 1.8s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(201, 123, 138, 0.3));
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            60% { transform: scale(1); }
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #a67c87;
+            font-weight: 300;
+        }
+
+        /* Soft glow effect */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, rgba(248, 200, 212, 0.5), rgba(232, 160, 176, 0.3));
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 2.5rem 1.8rem;
+            }
+            .title {
+                font-size: 1.7rem;
+            }
+            .message {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="card">
+        <div class="decorative-line"></div>
+        <h1 class="title">Для самой лучшей мамы</h1>
+        <p class="subtitle">с любовью</p>
+
+        <p class="message">
+            Мамочка, <strong>ты — мой самый тёплый свет</strong>.<br><br>
+            Твоя любовь делает этот мир добреным,<br>
+            а твоя забота — самым безопасным местом на земле.<br><br>
+            Спасибо, что ты у меня есть.<br>
+            Я тебя очень-очень люблю.
+        </p>
+
+        <div class="heart-icon">❤️</div>
+
+        <p class="footer">Твой ребёнок</p>
+    </div>
+
+    <script>
+        // Create floating hearts
+        const container = document.getElementById('hearts');
+        const heartSymbols = ['♥', '♡', '❤', '💕'];
+
+        for (let i = 0; i < 18; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.fontSize = (14 + Math.random() * 18) + 'px';
+            heart.style.animationDelay = (Math.random() * 8) + 's';
+            heart.style.animationDuration = (9 + Math.random() * 8) + 's';
+            container.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
